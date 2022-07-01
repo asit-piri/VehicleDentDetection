@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Vehicle Dent Detection</title>
+      <link rel='stylesheet', type='text/css', href="{{ url_for('static', filename='ui.css') }}"/>
+   </head>
+   <body>
+      <div id='left_panel'>
+         <!--Heading-->
+         <div id='heading'>
+            <img src="{{ url_for('static', filename='logo.png')}}">
+            <p id='heading_text'>Vehicle Dent Detection</p>
+         </div>
+
+         <!--Input image area-->
+         <div id='input_holder'>
+            <img id='input_image' />
+            <label id='input_button_label'>
+               <input type="file" accept="image/*", id="input_button" />
+               <img id='upload_img' src="{{ url_for('static', filename='upload.png')}}">
+            </label>
+         </div>
+
+         <!--Model Selection Dropdown-->
+         <div id='model_selecton_holder'>
+            <p id='model_selection_label'>Select Model</p>
+            <select name="model" id="model_selection_dropdown">
+               <option value="mask_rcnn">Mask RCNN</option>
+               <option value="unet">UNet</option>
+               <option value="detectron2">Detectron 2</option>
+               </select>
+         </div>
+
+         <!--Predict Button Area-->
+         <div id='predict_button_holder'>
+            <button type='button' id='predict_button'>Predict</button>
+         </div>
+      </div>
+      
+      <!--Output Area-->
+      <div id='output_card'>
+         <img id = 'output_image' />
+         <p id='output_text'></p>
+         <img id='loading' src="{{ url_for('static', filename='loading_5.gif') }}"/>
+         
+         <div id="legend_holder">
+            <p>Legend</p>
+            <ul id='legend'>
+               <li><img style="background: yellow;width: 25px;height: 25px;border-radius: 50%;">Dent</li>
+               <li><img style="background: orange;width: 25px;height: 25px;border-radius: 50%;">Scratch</li>
+               <li><img style="background: red;width: 25px;height: 25px;border-radius: 50%;">Damage</li>
+            </ul>
+         </div>
+      </div>
+   </body>
+   <script type='text/javascript', src="{{url_for('static', filename='ui.js')}}"></script>
+</html>

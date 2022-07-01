@@ -1,0 +1,13 @@
+#ignore meta files
+**/.ipynb_checkpoints/
+**/.virtual_documents/
+**/__pycache__/**
+**/.vscode/**
+
+#ignore data
+**.tfrecord**
+**.h5**
+**.jpeg**
+**.png**
+**.npy**
+
